@@ -1,10 +1,12 @@
 import React, { Component, Suspense, lazy } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { LandingHomePage } from './main/home';
 import { RoutesName } from '../utils/constant';
 import FallbackLoading from '../components/common/fallback';
 import NotFoundPage from '../components/common/not_found';
 import { Navbar } from '../components/navbars/navbar';
+import LoginPage from './auth/login';
+import { useAppDispatch, useTypedSelector } from "../stateStore";
 const LandingContactPage = lazy(() => import('./main/contact'));
 const LandingOurTeam = lazy(() => import('./main/our_team'));
 const LandingOurTeamDetails = lazy(() => import('./main/team_details'));
@@ -12,20 +14,22 @@ const LandingOurServices = lazy(() => import('./main/our_service'))
 const LandingOurServiceDetails = lazy(() => import('./main/service_details'));
 
 const RouteHanding = () => {
+      const navigate = useNavigate();
+      const { isLogin,adminDetails, error} = useTypedSelector((state) => state.Devronins);
 
-      const isLogin = true;
-
-      if (isLogin) {
+      if (!isLogin) {
             return (
                   <Routes>
                         // Route for landing Home Page
-                        <Route path="/" element={<h1>Auth page</h1>} />
+                        <Route path="/" element={<LoginPage/>} />
+                        {/* Not Found route */}
+                        <Route path="/not-found" element={<NotFoundPage />} />
+                        <Route path="*" element={<NotFoundPage />} />
                   </Routes>
             )
       }
-
-
       else {
+            navigate(RoutesName.Home);
             return (
                   <div className='w-full h-full'>
                         <Navbar />

@@ -4,7 +4,7 @@ export const RoutesName = {
         ForgetPassword: '/forgetPassword',
         NewPassword: '/newPassword',
         VerifyEmail: '/verifyEmail',
-        Home: '/',
+        Home: '/home',
         Contact:'/contact',
         OurTeam:'/our-team',
         OurTeamDetails: 'our-team/:id',

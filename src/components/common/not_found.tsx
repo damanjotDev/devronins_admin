@@ -87,8 +87,8 @@ const NotFoundPage = () => {
             px-6
             gradient3
             rounded-full"
-            onClick={()=> navigate(RoutesName.Home)}>
-                <TypographyP className="md:text-lg text-white" title="Go Back Home!" />
+            onClick={()=> navigate(-1)}>
+                <TypographyP className="md:text-lg text-white" title="Go Back!" />
             </button>
           </div>
 

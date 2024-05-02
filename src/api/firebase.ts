@@ -1,4 +1,5 @@
 import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
@@ -14,10 +15,19 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
 // API methods
 export const firebaseApi = {
     // GET request
+    loginWithEmailAndPassword: async ({email, password}: {email: string, password: string}): Promise<any> => {
+      try {
+        const data = await signInWithEmailAndPassword(auth, email, password);
+        return data.user;
+      } catch (error) {
+        throw error
+      }
+    },
     get: async (collectionName: string): Promise<any> => {
       try {
         const dataCol = collection(db, collectionName);

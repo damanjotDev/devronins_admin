@@ -1,10 +1,13 @@
 
-import { getDevroninsDetails } from '../services';
+import { devroninsAdminLogin, getDevroninsDetails } from '../services';
 import {createSlice, isAnyOf} from '@reduxjs/toolkit'
 
 
 
 interface DevroninsInitialStateType {
+  isLogin: boolean;
+  adminDetails: any;
+  adminDetailsLoading: boolean;
   devroninsDetails: null | DevroninsReviewModal
   devroninsDetailsLoading: boolean
   error: boolean
@@ -28,6 +31,9 @@ export interface DevroninsReviewModal {
 }
 
 const initialState: DevroninsInitialStateType = {
+  isLogin: false,
+  adminDetails: null,
+  adminDetailsLoading: false,
   devroninsDetails : null ,
   devroninsDetailsLoading: false,
   error: false
@@ -49,6 +55,19 @@ const DevroninsSlice = createSlice({
     builder.addCase(getDevroninsDetails.rejected, (state, action) => {
       state.error = true
       state.devroninsDetailsLoading = false
+    })
+
+    builder.addCase(devroninsAdminLogin.pending, (state) => {
+      state.adminDetailsLoading = true
+    })
+    builder.addCase(devroninsAdminLogin.fulfilled, (state, action) => {
+      state.adminDetails = action.payload
+      state.adminDetailsLoading = false
+      state.isLogin= true
+    })
+    builder.addCase(devroninsAdminLogin.rejected, (state, action) => {
+      state.error = true
+      state.adminDetailsLoading = false
     })
   }
 })

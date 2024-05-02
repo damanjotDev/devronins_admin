@@ -13,8 +13,7 @@ function App() {
   return (
     <div className="
     relative
-    w-full
-    lg:pt-[96px] pt-[60px]">
+    w-full">
       <MouseCursorBackground/>
       <RouteHanding/>
       <Toaster/>
