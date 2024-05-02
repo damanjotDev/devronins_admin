@@ -1,6 +1,6 @@
 import { FaChevronDown, FaFacebookF, FaTwitter, FaInstagram, FaLongArrowAltRight, FaStar, FaCheckCircle, FaLink, FaLinkedinIn, FaAppStoreIos, FaGooglePlay } from "react-icons/fa";
-import { FaAngleDown, FaRegCircleUser, FaCheck, FaArrowRightLong, FaAngleRight } from "react-icons/fa6"
-import { IoClose, IoSettingsOutline, IoLogOutOutline, IoLocation, IoLocationOutline, IoPlanetOutline } from "react-icons/io5";
+import { FaAngleDown, FaRegCircleUser, FaCheck, FaArrowRightLong, FaAngleRight, FaPlus } from "react-icons/fa6"
+import { IoClose, IoSettingsOutline, IoLogOutOutline, IoLocation, IoLocationOutline, IoPlanetOutline, IoSearch } from "react-icons/io5";
 import { IoLogoGoogleplus } from "react-icons/io";
 import { GrFacebookOption } from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
@@ -59,5 +59,7 @@ export{
     FaLinkedinIn,
     FaAppStoreIos,
     FaGooglePlay,
-    BsBrowserChrome
+    BsBrowserChrome,
+    IoSearch,
+    FaPlus
 }

@@ -15,39 +15,38 @@ const Navbar = () => {
       <motion.div className={`
           fixed
           top-0
+          bottom-0
           z-[50]
-          w-full
           shadow-lg
           bg-white
           flex
-          items-center
-          justify-between
-          h-auto
+          flex-col
+          gap-5
+          md:py-10
           px-5
-          py-3`}
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1 , y: 0 }}
+          py-5
+          md:w-[350px]
+          w-[80px]`}
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1 , x: 0 }}
           transition={{ duration: 0.4, delay: 0.5 }}>
 
         {/* Logo Section */}
         <div className="
-             w-[50%]
-             lg:w-[15%]
              flex
              items-center
+             px-4
             ">
           <img
             src="https://www.devronins.com/images/DevRonins.png"
-            className="object-contain w-[100%]"
+            className=" md:w-[200px] w-full"
           />
         </div>
 
         {/* Navigation section  for Desktop*/}
         <DesktopNavbar/>
 
-        {/* Navigation section for mobile */}
-        <MobileNavbar/>
-
+       
       </motion.div>
   )
 }

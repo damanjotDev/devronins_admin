@@ -29,9 +29,8 @@ const RouteHanding = () => {
             )
       }
       else {
-            navigate(RoutesName.Home);
             return (
-                  <div className='w-full h-full'>
+                  <div className='w-full min-h-screen bg-accent'>
                         <Navbar />
                         <Routes>
                               // Route for landing Home Page

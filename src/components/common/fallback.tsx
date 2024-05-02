@@ -5,10 +5,9 @@ const FallbackLoading = () => {
     return (
         <div className='
         z-[1000]
-        fixed
+        absolute
         w-full 
         top-0
-        bottom-0
         h-screen
         flex
         items-center
